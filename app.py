@@ -19,24 +19,12 @@ with open('master.txt', encoding='utf-8', errors='ignore')  as f:
 portugueseTrie = TrieDS()
 englishTrie = TrieDS()
 
-pt_time = time.process_time()
 for word in ptwords:
     portugueseTrie.insert(word.rstrip('\n'))
 
-elapsed_pttime = (time.process_time() - pt_time)
-print(elapsed_pttime)
-
-en_time = time.process_time()
 for word in enwords:
     englishTrie.insert(word.rstrip('\n').lower())
     
-elapsed_entime = (time.process_time() - en_time)
-print(elapsed_entime)
-
-lang_dict = {
-            "en": englishTrie, 
-            "pt": portugueseTrie
-}
 
 del ptwords
 del enwords
@@ -55,6 +43,12 @@ class PrefixQuery(Resource):
         
         lang = args['lang']
         string = args['string']
+        
+        lang_dict = {
+            "en": englishTrie, 
+            "pt": portugueseTrie
+        }
+
         trie = lang_dict[lang]
         
         suggestions = trie.prefix_query(string)
@@ -72,5 +66,5 @@ class PrefixQuery(Resource):
 api.add_resource(PrefixQuery, '/')
 
 
-if __name__ == '__main__':
-    app.run(debug=True)
+#if __name__ == '__main__':
+#    app.run(debug=True)
