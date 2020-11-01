@@ -6,6 +6,7 @@ import time
 app = Flask(__name__)
 api = Api(app)
 app.config['JSON_AS_ASCII'] = False
+app.config['JSONIFY_PRETTYPRINT_REGULAR'] = True
 
 
 with open('7776palavras.txt', encoding='utf-8', errors='ignore')  as f:
