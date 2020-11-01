@@ -40,8 +40,7 @@ lang_dict = {
 
 del ptwords
 del enwords
-        
-
+      
 class PrefixQuery(Resource):
     
     def get(self):
@@ -71,6 +70,7 @@ class PrefixQuery(Resource):
             })
 
 api.add_resource(PrefixQuery, '/')
+
 
 if __name__ == '__main__':
     app.run(debug=True)
