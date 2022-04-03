@@ -21,7 +21,7 @@ lazy-object-proxy==1.4.3
 MarkupSafe==1.1.1
 mccabe==0.6.1
 packaging==20.3
-paramiko==2.7.1
+paramiko==2.10.1
 pika==1.1.0
 prompt-toolkit==3.0.5
 pycparser==2.20
